@@ -20,8 +20,11 @@
     var initESW = function(gslbBaseURL) {
         embedded_svc.settings.displayHelpButton = true; //Ou falso
         embedded_svc.settings.language = ''; //Por exemplo, insira "pt" ou "pt-BR"
-        embedded_svc.settings.chatbotAvatarImgURL = 'https://sironabr--c.na126.visual.force.com/resource/1583766593000/Dona_Avatar?';
-        embedded_svc.settings.defaultMinimizedText = 'Fale com a DONA'; 
+        embedded_svc.settings.chatbotAvatarImgURL = 'https://c.cs125.visual.force.com/resource/1579289992000/Dona_Avatar?';
+        embedded_svc.settings.defaultMinimizedText = 'Fale com a DONA';
+        
+
+        //embedded_svc.settings.disabledMinimizedText = '...'; //(Assume como padrão Agente off-line)
 
         //embedded_svc.settings.loadingText = ''; //(Assume como padrão Carregando)
         //embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Define o domínio de sua implantação para que seus visitantes possam navegar em subdomínios durante uma sessão de chat)
@@ -31,8 +34,7 @@
             // Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
             // Returns a valid button ID.
         //};
-        
-         embedded_svc.settings.extraPrechatInfo = [{
+        embedded_svc.settings.extraPrechatInfo = [{
           "entityFieldMaps": [{
             "doCreate":true,
             "doFind":false,
@@ -60,25 +62,28 @@
           }],
           "entityName":"Contact"
         }];
-        
+
         //embedded_svc.settings.prepopulatedPrechatFields = {}; //Define o preenchimento automático de campos de formulário de pré-chat
         //embedded_svc.settings.fallbackRouting = []; //Uma matriz de IDs de botão, IDs de usuário ou userId_buttonId
         //embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Padronizado para Entre em contato conosco)
 
         embedded_svc.settings.enabledFeatures = ['LiveAgent'];
         embedded_svc.settings.entryFeature = 'LiveAgent';
+        
+        
+        
 
         embedded_svc.init(
-            'https://sironabr--sironaparc.my.salesforce.com',
-            'https://sironaparc-sirona.cs20.force.com/',
+            'https://cs125.salesforce.com',
+            'https://bot-sirona.cs125.force.com/',
             gslbBaseURL,
-            '00Dm00000009Jhm',
+            '00D3K0000008jQ0',
             'DS_Agentes',
             {
-                baseLiveAgentContentURL: 'https://c.la4-c1cs-dfw.salesforceliveagent.com/content',
+                baseLiveAgentContentURL: 'https://c.la1-c1cs-ia4.salesforceliveagent.com/content',
                 deploymentId: '572d0000000GwKR',
-                buttonId: '573m0000000Cb5l',
-                baseLiveAgentURL: 'https://d.la4-c1cs-dfw.salesforceliveagent.com/chat',
+                buttonId: '5733K000000002u',
+                baseLiveAgentURL: 'https://d.la1-c1cs-ia4.salesforceliveagent.com/chat',
                 eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04I3K0000004C9rUAE_16f67767caa',
                 isOfflineSupportEnabled: false
             }
@@ -87,7 +92,7 @@
 
     if (!window.embedded_svc) {
         var s = document.createElement('script');
-        s.setAttribute('src', 'https://sironabr--sironaparc.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+        s.setAttribute('src', 'https://cs125.salesforce.com/embeddedservice/5.0/esw.min.js');
         s.onload = function() {
             initESW(null);
         };
